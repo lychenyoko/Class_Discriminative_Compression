@@ -51,21 +51,21 @@ bn_var_epsilon = 1e-5
 
 # Loaded from other model
 model_loaded = True
-model = './Model_ResNet56/ResNet56_2020-04-21_04:46:39_acc_73.27_FLOP_100.0_Param_100.67/ResNet56_2020-04-21_04:46:39_acc_73.27_FLOP_100.0_Param_100.67.npy'
+# model = './Model_ResNet56/ResNet56_2020-04-21_04:46:39_acc_73.27_FLOP_100.0_Param_100.67/ResNet56_2020-04-21_04:46:39_acc_73.27_FLOP_100.0_Param_100.67.npy'
 
 # Knowledge Distillation
-teacher_model = './Model_ResNet56/ResNet56_2020-04-21_04:46:39_acc_73.27_FLOP_100.0_Param_100.67/ResNet56_2020-04-21_04:46:39_acc_73.27_FLOP_100.0_Param_100.67.npy'
+# teacher_model = './Model_ResNet56/ResNet56_2020-04-21_04:46:39_acc_73.27_FLOP_100.0_Param_100.67/ResNet56_2020-04-21_04:46:39_acc_73.27_FLOP_100.0_Param_100.67.npy'
 output_kd_lambda = 1.0
 inter_kd_mode = 'DCA'
 inter_kd_lambda = 0
 inter_kd_block = 'Res16_2'
 inter_kd_layer = 'Relu2 Output'
 dca_mode = 'coarse'
-dca_learn_freq = 100 # Learn the DCA weight every 5 epochs
+dca_learn_freq = 80 # Learn the DCA weight every dca_learn_freq epochs
 
 
 ### ------------------------------- Pruning Params -------------------------------
-need_pruning = True
+need_pruning = False
 Pfunc = DISCRIMINANT_FUNC_LIST[2]
 pruning_mode = PRUNING_MODE[0]
 prune_ratio = 0.45
@@ -82,7 +82,7 @@ pre_rmve_list = [
 pre_sel_list = pre_rmve_list
 
 # Hierarchical Label Loading
-cifar_ytr_coarse_file = './ResNet_Multi_Resolution/CIFAR_100_Coarse_Label/cifar100_coarse_ytr_confusion_matrix_spectral_clustering.npy'
+cifar_ytr_coarse_file = './CIFAR_100_Coarse_Label/cifar100_coarse_ytr_confusion_matrix_spectral_clustering.npy'
 block_threshold = 14
 front_label = 'coarse'
 rear_label = 'fine'

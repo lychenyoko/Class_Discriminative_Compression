@@ -32,7 +32,7 @@ numpy==1.16.0
 ```
 
 
-### Training Full-Size Original Model
+### Training Full-Size Original Model from Scratch
 
 Training an original full-size model can be conducted by:
 
@@ -60,11 +60,18 @@ This hierarchy is spcified by the file `./CIFAR_100_Coarse_Label/cifar100_coarse
 
 ### Class-Discriminative Distillation
 
+With the teacher file (referred as `trained_ResNet_ckpt.pkl`) saved from training scratch and pruned model file (referred as `pruned_ResNet_ckpt.pkl`) saved from the CDC pruning experiment, we can retrain the compressed model with class-discriminative distillation by:
+
 ```
 python3 model_CDC_distillation.py \
-
+	--teacher_model=trained_ResNet_ckpt.pkl \
+	--model=pruned_ResNet_ckpt.pkl
 ```
 
+The hyper-parameter setting of this experiment is fully specified in the file of `ResNet_hyperparams_CDC_distillation.py`. 
+We use DCA-based intermediate distillation where the coarse label is used to learn the DCA subspace. 
 
 
+### Output
 
+The final output is a CDC-compressed ResNet-56 on CIFAR-100. 
