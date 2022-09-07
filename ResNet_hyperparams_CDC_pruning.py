@@ -27,8 +27,8 @@ ResNet110_Full_Shape = [
 ### ------------------------------- Training Params -------------------------------
 # Network Structure and Dataset
 Dataset = DATASET_NAME[1]
-n_res_block = 18
-block_type = BLOCK_TYPE[1]
+n_res_block = 9
+block_type = BLOCK_TYPE[0]
 
 # Epoch num and batch size
 MAX_EPOCH = 200
