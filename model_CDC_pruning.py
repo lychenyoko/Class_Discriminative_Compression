@@ -12,7 +12,7 @@ from Util.pruning_augmenting_util import Get_Network_Channel_Score_List, Generat
 from Util.pruning_augmenting_util import Get_Layer_Sensitivity, Get_Rmve_List
 
 '''-------Load Hyper-parameters and Set Them to Global Parameters------'''
-from ResNet_hyperparams_multi_res_pruning import *
+from ResNet_hyperparams_CDC_pruning import *
 if block_type == 'Normal':
     num_layer = n_res_block * 6 + 2
 if block_type == 'BottleNeck':

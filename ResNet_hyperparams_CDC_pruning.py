@@ -69,7 +69,7 @@ pre_rmve_list = [
 pre_sel_list = pre_rmve_list
 
 # Hierarchical Label Loading
-cifar_ytr_coarse_file = '/scratch/network/yl16/Dataset/CIFAR-100/cifar100_coarse_ytr_ground_truth.npy'
+cifar_ytr_coarse_file = './CIFAR_100_Coarse_Label/cifar100_coarse_ytr_confusion_matrix_spectral_clustering.npy'
 block_threshold = 27
 front_label = 'coarse'
 rear_label = 'fine'

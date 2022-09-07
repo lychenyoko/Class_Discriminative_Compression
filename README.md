@@ -32,23 +32,39 @@ numpy==1.16.0
 ```
 
 
-
-
 ### Training Full-Size Original Model
 
+Training an original full-size model can be conducted by:
+
 ```
-python3
+python3 model_training.py
 ```
+
+This experiment is fully controlled by the hyper-parameters specified in the file `ResNet_hyperparams_training.py`. By default, it will train a ResNet-56 on CIFAR-100 from scratch. 
+
 
 ### Class-Discriminative Pruning
 
+With the full-size model file (referred as `trained_ResNet_ckpt.pkl` here) saved from the above training from scratch experiment, we can perform class-discriminative pruning by:
+
 ```
-python3 
+python3 model_CDC_pruning.py \
+	--model=trained_ResNet_ckpt.pkl
 ```
+
+The hyper-parameter setting of this experiment is fully specified in the file of `ResNet_hyperparams_CDC_pruning.py`. 
+By default, we use Generalized Symmetric Divergennce as the channel pruning function to obtain the channel's discriminative score. 
+Moreover, we employ hierarchical pruning mechanism where the front layers are pruned by fine labels and the rear layers use coarse labels. 
+This hierarchy is spcified by the file `./CIFAR_100_Coarse_Label/cifar100_coarse_ytr_confusion_matrix_spectral_clustering.npy`.
+
 
 ### Class-Discriminative Distillation
 
 ```
-python3 
+python3 model_CDC_distillation.py \
+
 ```
+
+
+
 
